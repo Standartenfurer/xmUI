@@ -1,18 +1,24 @@
 package pages;
 
+import managers.SetupManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends BasePage {
+import static org.testng.Assert.assertTrue;
 
-    @FindBy(className = "gtm-acceptDefaultCookieFirstVisit")
-    private WebElement acceptCookiesButton;
+
+import static driver.DriverManager.getDriver;
+
+public class HomePage extends BasePage<HomePage> {
+
 
     @FindBy(className = "main_nav_partners")
     private WebElement partnersButton;
 
+
+    private final String url = SetupManager.getUrl("base");
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -20,16 +26,22 @@ public class HomePage extends BasePage {
 
     @Override
     protected void load() {
-
+        getDriver().get(url);
     }
 
     @Override
     protected void isLoaded() throws Error {
-
+        assertTrue(isElementDisplayed(partnersButton), "Home page was not loaded");
     }
 
-    public void clickAcceptCookies() {
-        acceptCookiesButton.click();
+    public HomePage openPage() {
+        getDriver().get(url);
+        return this;
+    }
+
+    public PartnersPage clickPartnersButton() {
+        click(partnersButton);
+        return new PartnersPage(getDriver());
     }
 
 }

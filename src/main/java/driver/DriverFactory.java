@@ -4,7 +4,8 @@ import org.openqa.selenium.WebDriver;
 
 /**
  * Class is responsible for holding factory methods for
- * driver handling.
+ * driver handling. Creating in factory method approach - if needs any further upgrades.
+ * E. g. interface to set driver options, killing driver etc.
  */
 
 public interface DriverFactory {
@@ -16,18 +17,5 @@ public interface DriverFactory {
      * on type in DriverTypes enum
      */
     WebDriver createDriver();
-
-    /**
-     *
-     */
-
-    /**
-     * Ends session for the WebDriver
-     *
-     * @param webDriver receives WebDriver instance which should
-     *                  be closed
-     */
-    void killDriver(WebDriver webDriver);
-
 
 }
