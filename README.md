@@ -1,6 +1,22 @@
 # xmUI
 XM UI-Automation task
 
+Prerequirements for run- 
+1. Installed chrome (Version 98.0.4758.102< (Official Build) (64-bit)) and firefox (for crossbrowser run(97.0.1<))
+2. Java 11
+3. Maven
+
+Brief information
+
+Framework built using Selenium and Testng. Supports parallel and crossbrowser run for tests. 
+
+Test execution ways.
+1. Single test run (play button): will run test using driver type provided in config.proerties
+2. Command line run: can be executed via command mvn clean test -Dsurefire.suiteXmlFile=/src/test/resource/registrationTest.xml (from source root),
+   will execute based on drivers provided in registrationTest.xml 
+3. Suite run via IDEA: Ability to run tests via xml suite from IDEA
+
+
 Task Description
 
 Automation testing task #1 (UI)
